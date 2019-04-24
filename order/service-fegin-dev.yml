@@ -1,0 +1,40 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8088/eureka/
+server:
+  port: 8089
+spring:
+  application:
+    name: service-config
+    #配置git远程仓库地址
+  data:
+    elasticsearch:
+      ####集群名称
+      cluster-name: wfy
+      ####地址
+      cluster-nodes: 127.0.0.1:9300
+      repositories:
+        enable: true
+    mongodb:
+      database: test
+      host: 192.168.10.128
+      port: 27017
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/wfy054/springCloudConfigTest.git
+          #配置 配置文件所在git远程库的文件夹名称
+          search-paths: springCloudConfigTest/**
+          #如果项目是私有项目 需要配置git远程库用户名密码
+          username: wfy054
+          password: wfy0504..
+redis:
+  host: 127.0.0.1
+  maxActive: 600
+  maxIdle: 300
+  maxWait: 1000
+  pass: ''
+  port: 6379
+  testOnBorrow: true
